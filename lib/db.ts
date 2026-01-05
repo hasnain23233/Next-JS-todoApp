@@ -1,11 +1,15 @@
 import mongoose  from 'mongoose'
 
-const mongoDB: any = process.env.MONGODB_URI;
+const mongoDB: string = process.env.MONGODB_URI!;
 
 const DataBaseConnection = async ()=>{
     try {
         if(mongoose.connections[0].readyState){
             console.log("MongoDB already connected")
+            return
+        }
+        if(!mongoDB){
+            console.log('MONGODB_URI not found in environment')
             return
         }
         await mongoose.connect(mongoDB)

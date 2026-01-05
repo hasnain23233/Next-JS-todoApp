@@ -21,5 +21,5 @@ const  TodoSchema: Schema = new Schema<ITodo>(
     },
     {timestamps: true}
 )
-const Todo: Model<ITodo> = mongoose.model<ITodo>("Todo" , TodoSchema)
+const Todo: Model<ITodo> =  mongoose.models.Todo || mongoose.model<ITodo>("Todo" , TodoSchema)
 export default Todo
