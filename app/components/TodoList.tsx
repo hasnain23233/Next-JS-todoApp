@@ -13,7 +13,7 @@ export default function TodoList() {
 
   return (
     <div className="mt-4">
-      {todos.map((todo : any) => (
+      {todos.map((todo: any ) => (
         <div key={todo._id} className="border p-2 rounded mb-2">
           <h3 className="font-bold">{todo.title}</h3>
           <p>{todo.description}</p>

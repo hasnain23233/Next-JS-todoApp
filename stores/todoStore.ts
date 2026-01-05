@@ -12,7 +12,7 @@ export const useTodoStore = create<TodoState>((set, get) => ({
 
   fetchTodos: async () => {
     try {
-      const res = await fetch("/api/todos");
+      const res = await fetch("/api/todo");
       const data = await res.json();
       set({ todos: data });
     } catch (error) {
@@ -22,7 +22,7 @@ export const useTodoStore = create<TodoState>((set, get) => ({
 
   addTodo: async (todo: Partial<ITodo>) => {
     try {
-      const res = await fetch("/api/todos", {
+      const res = await fetch("/api/todo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(todo),
